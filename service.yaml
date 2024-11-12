@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: mf-receipting-service
+    labels:
+      build: mf-receipting
+spec:
+    ports:
+    - protocol: TCP
+      port: 80 
+      targetPort: 8080
+    selector:
+      build: mf-receipting
+    type: LoadBalancer

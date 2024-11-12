@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mf-receipting  # Name of the deployment
+    labels:
+      build: mf-receipting
+spec:
+    replicas: 3  # Number of pod replicas
+    selector:
+        matchLabels:
+            build: mf-receipting
+    template:
+        metadata:
+            labels:
+                build: mf-receipting
+        spec:
+            containers:
+            - name: mf-receipting-app  # Name of the container
+              image: gcr.io/lyrical-edition-440912-u7/mf-receipting-image   
+              ports:
+              - containerPort: 8080
