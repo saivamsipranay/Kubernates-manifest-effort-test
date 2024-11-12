@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: mf-receipting-ingress
+spec:
+    defaultBackend:
+       service:
+          name: "mf-receipting-service"
+          port:
+             number: 80
+    tls:
+      - secretName: "spoors-io-tls-chain-2023"
